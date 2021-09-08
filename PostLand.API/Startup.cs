@@ -7,9 +7,12 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
+using PostLand.Application;
+using PostLand.Persistence;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
 namespace PostLand.API
@@ -26,6 +29,14 @@ namespace PostLand.API
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddControllers().AddJsonOptions(x =>
+                     x.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.Preserve);
+
+            // add Core Application Container
+            services.AddApplicationServices();
+
+            // Add Infrastructure Persistence Container
+            services.AddPersistenceServices(Configuration);
 
             services.AddControllers();
             services.AddSwaggerGen(c =>

@@ -14,4 +14,8 @@
     <ProjectReference Include="..\PostLand.Domain\PostLand.Domain.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Features\Categories\Queries\" />
+  </ItemGroup>
+
 </Project>

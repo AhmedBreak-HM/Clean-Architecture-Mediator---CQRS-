@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using PostLand.Application.Features.Categories.Command.CreateCategory;
 using PostLand.Application.Features.Posts.Commands.CreatePost;
 using PostLand.Application.Features.Posts.Commands.UpdatePost;
 using PostLand.Application.Features.Posts.Queries.GetPostDetail;
@@ -15,6 +16,7 @@ namespace PostLand.Application.Profiles
             CreateMap<Post, GetPostDetailDto>();
             CreateMap<CreatePostCommand, Post>();
             CreateMap<UpdatePostCommand, Post>();
+            CreateMap<CreateCategoryCommand, Category>();
         }
     }
 }
